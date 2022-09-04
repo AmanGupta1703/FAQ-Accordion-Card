@@ -26,7 +26,7 @@ arrow_Btn.forEach((element) => {
     } else {
       element.classList.remove("rotate-arrow");
 
-      sub_heading[targetElement].classList.add["text-color"];
+      sub_heading[targetElement].classList.remove["text-color"];
       sub_heading[targetElement].classList.remove("fw-700");
 
       faq_ans_text[targetElement].style.display = "none";
