@@ -12,24 +12,58 @@ const faq_answers = [
   `Chat and email support is available 24/7. Phone lines are open during normal business hours.`,
 ];
 
-arrow_Btn.forEach((element) => {
-  element.addEventListener("click", (e) => {
-    const targetElement = e.target.id;
-    if (!(element.classList.contains("rotate-arrow"))) {
-
-      element.classList.add("rotate-arrow");
-
-      sub_heading[targetElement].classList.add["text-color"];
-      sub_heading[targetElement].classList.add("fw-700");
-
-      faq_ans_text[targetElement].textContent = `${faq_answers[targetElement]}`;
+arrow_Btn.forEach((e, i) => {
+  e.addEventListener("click", () => {
+    if (e.classList.contains("rotate-arrow")) {
+      sub_heading.forEach((e) => {
+        e.classList.remove("text-color");
+        e.classList.remove("fw-700");
+      });
+      arrow_Btn.forEach((e) => {
+        e.classList.remove("rotate-arrow");
+      });
+      faq_ans_text.forEach((e) => (e.innerHTML = ""));
     } else {
-      element.classList.remove("rotate-arrow");
+      sub_heading.forEach((e) => {
+        e.classList.remove("text-color");
+        e.classList.remove("fw-700");
+      });
+      arrow_Btn.forEach((e) => {
+        e.classList.remove("rotate-arrow");
+      });
+      faq_ans_text.forEach((e) => (e.innerHTML = ""));
+      arrow_Btn[i].classList.add("rotate-arrow");
+      sub_heading[i].classList.add("text-color");
+      sub_heading[i].classList.add("fw-700");
+      faq_ans_text[i].textContent = faq_answers[i];
+    }
+  });
+});
 
-      sub_heading[targetElement].classList.remove["text-color"];
-      sub_heading[targetElement].classList.remove("fw-700");
-
-      faq_ans_text[targetElement].style.display = "none";
+sub_heading.forEach((e, i) => {
+  e.addEventListener("click", () => {
+    if (e.classList.contains("fw-700")) {
+      sub_heading.forEach((e) => {
+        e.classList.remove("text-color");
+        e.classList.remove("fw-700");
+      });
+      arrow_Btn.forEach((e) => {
+        e.classList.remove("rotate-arrow");
+      });
+      faq_ans_text.forEach((e) => (e.innerHTML = ""));
+    } else {
+      sub_heading.forEach((e) => {
+        e.classList.remove("text-color");
+        e.classList.remove("fw-700");
+      });
+      arrow_Btn.forEach((e) => {
+        e.classList.remove("rotate-arrow");
+      });
+      faq_ans_text.forEach((e) => (e.innerHTML = ""));
+      arrow_Btn[i].classList.add("rotate-arrow");
+      sub_heading[i].classList.add("text-color");
+      sub_heading[i].classList.add("fw-700");
+      faq_ans_text[i].textContent = faq_answers[i];
     }
   });
 });
